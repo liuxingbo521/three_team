@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.BookMapper">
+  <select id="treeshow" resultType="tree">
+    SELECT * from dept where pid=#{id}
+  </select>
+
+  <select id="querynameCount" resultType="integer">
+    SELECT count(*) from  emp where 1=1
+  </select>
+
+  <select id="querynameList" resultType="Emp">
+     SELECT * from  emp where 1=1 limit #{startIndex},#{endIndex};
+  </select>
+
+  <delete id="empdeletes">
+    delete from emp where empid=#{id}
+  </delete>
+
+  <select id="loginthree" resultType="user">
+    select * from user where username=#{username} and userpwd=#{userpwd}
+  </select>
+
+  <select id="dataSet" resultType="book">
+  select * from book
+  </select>
+
+  <insert id="importExce">
+    insert into book VALUES (#{id},#{bookname},#{bookprice})
+  </insert>
+
+</mapper>
